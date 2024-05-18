@@ -20,9 +20,9 @@ const user = {
     { name: 'Team', href: '#', current: false },
   ];
   const userNavigation = [
-    { name: 'Your Profile', link: '/' },
-    { name: 'Settings', link: '/' },
+    { name: 'Your Profile', link: '/profile' },
     { name: 'Sign out', link: '/login' },
+    { name: 'My Orders', link: '/orders' },
   ];
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ');

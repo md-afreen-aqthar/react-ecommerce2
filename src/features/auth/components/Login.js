@@ -39,8 +39,7 @@ export default function Login() {
               );
             })}
             className="space-y-6"
-            action="#"
-            method="POST"
+          
           >
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
