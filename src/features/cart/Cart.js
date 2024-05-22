@@ -1,14 +1,13 @@
-import React, { useState, Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   deleteItemFromCartAsync,
   selectItems,
   updateCartAsync,
 } from './cartSlice';
-import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+
 import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+import {Navigate } from 'react-router-dom';
 export default function Cart() {
   const dispatch = useDispatch();
   const [open, setOpen] = useState(true);
@@ -29,7 +28,7 @@ export default function Cart() {
   }
   return (
     <>
-      {!items.length && <Navigate to='/' replace={true}></Navigate>}
+      {!items.length && <Navigate to="/" replace={true}></Navigate>}
       <div>
         <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
@@ -37,7 +36,7 @@ export default function Cart() {
               Cart
             </h1>
             <div className="flow-root">
-              <ul role="list" className="-my-6 divide-y divide-gray-200">
+            <ul className="-my-6 divide-y divide-gray-200">
                 {items.map((item) => (
                   <li key={item.id} className="flex py-6">
                     <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -68,16 +67,17 @@ export default function Cart() {
                             Qty
                           </label>
                           <select onChange={(e) => handleQuantity(e, item)} value={item.quantity}>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
                           </select>
                         </div>
                         <div className="flex">
                           <button
-                           onClick={e=>handleRemove(e,item.id)}
+                           onClick={(e)=>handleRemove(e,item.id)}
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
                           >

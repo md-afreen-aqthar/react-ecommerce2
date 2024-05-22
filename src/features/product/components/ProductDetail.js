@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchAllProductByIdAsync, selectProductById } from '../productSlice';
+import { fetchProductByIdAsync, selectProductById } from '../productSlice';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
@@ -38,7 +38,7 @@ function classNames(...classes) {
 export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [selectedSize, setSelectedSize] = useState(sizes[2])
-  const user = useSelector(selectLoggedInUser)
+  const user = useSelector(selectProductById)
   const product = useSelector(selectProductById);
   const dispatch = useDispatch()
   const params =useParams();
@@ -49,8 +49,9 @@ export default function ProductDetail() {
     dispatch(addToCartAsync(newItem)) 
   }
  useEffect(()=>{
-    dispatchEvent(fetchAllProductByIdAsync(params.id))
-  },[dispatch,params.id])
+  console.log(params,params?.id)
+    dispatch(fetchProductByIdAsync(params.id));
+  },[dispatch,params.id]);
  // In server data will add data, colours, sizes etc
  
   return (
@@ -58,7 +59,7 @@ export default function ProductDetail() {
     {product && (
     <div className="pt-6">
         <nav aria-label="Breadcrumb">
-          <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <ol className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             {product.breadcrumbs && product.breadcrumbs.map((breadcrumb) => (
               <li key={breadcrumb.id}>
                 <div className="flex items-center">

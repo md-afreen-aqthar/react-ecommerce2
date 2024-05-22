@@ -8,12 +8,12 @@ import {
 import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
-  selectLoggedInUser,
+
   updateUserAsync,
 } from '../auth/authSlice';
 import { useState } from 'react';
 import { createOrderAsync , selectCurrentOrder} from '../order/orderSlice';
-
+import { selectUserInfo } from '../user/userSlice';
 
 
 function Checkout() {
@@ -24,7 +24,7 @@ function Checkout() {
     reset,
     formState: { errors },
   } = useForm();
-  const user = useSelector(selectLoggedInUser);
+  const user = useSelector(selectUserInfo);
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);
   const totalAmount = items.reduce(
@@ -292,7 +292,7 @@ function Checkout() {
               <p className="mt-1 text-sm leading-6 text-gray-600">
                 Choose from Existing addresses
               </p>
-              <ul role="list">
+              <ul >
                 {user.addresses.map((address, index) => (
                   <li
                     key={index}
