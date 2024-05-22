@@ -2439,13 +2439,22 @@
       "password": "Arfeen28@",
       "addresses": [
         {
-          "name": "afreen md",
+          "name": "Arfeen",
           "email": "afreen.md2803@gmail.com",
           "city": "vijayawada",
           "state": "Andhra Pradesh",
           "pinCode": "522302",
           "phone": "09948716306",
           "street": "seshamsetti road,NRI RESIDENCE,vaddeswaram"
+        },
+        {
+          "name": "Ayaan",
+          "email": "afreen.md2803@gmail.com",
+          "phone": "9948716306",
+          "street": "seshamsetti road,NRI RESIDENCE,vaddeswaram",
+          "city": "vijayawada",
+          "state": "Andhra Pradesh",
+          "pinCode": "522302"
         }
       ],
       "role": "user"

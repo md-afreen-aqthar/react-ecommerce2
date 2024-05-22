@@ -1,10 +1,10 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { fetchLoggedInUserOrders, updateUser, fetchLoggedInUser } from './userAPI';
+import { fetchLoggedInUserOrders, updateUser, fetchLoggedInUser} from './userAPI';
 
 const initialState = {
   userOrders: [],
   status: 'idle',
-  userInfo: null, // this info will be used in case of detailed user info, while auth will 
+  // userInfo: null, // this info will be used in case of detailed user info, while auth will 
   // only be used for loggedInUser id etc checks
 };
 
@@ -52,6 +52,7 @@ export const userSlice = createSlice({
         // this info can be different or more from logged-in User info
         state.userOrders = action.payload;
       })
+    
       .addCase(updateUserAsync.pending, (state) => {
         state.status = 'loading';
       })
@@ -64,7 +65,7 @@ export const userSlice = createSlice({
       })
       .addCase(fetchLoggedInUserAsync.fulfilled, (state, action) => {
         state.status = 'idle';
-        // this info can be different or more from logged-in User info
+       // this info can be different or more from logged-in User info
         state.userInfo = action.payload;
       });
   },

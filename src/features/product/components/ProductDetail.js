@@ -2,7 +2,7 @@ import { useState,useEffect } from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { RadioGroup } from '@headlessui/react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductByIdAsync, selectProductById } from '../productSlice';
+import { fetchAllProductByIdAsync, selectProductById } from '../productSlice';
 import { useParams } from 'react-router-dom';
 import { addToCartAsync } from '../../cart/cartSlice';
 import { selectLoggedInUser } from '../../auth/authSlice';
@@ -50,7 +50,7 @@ export default function ProductDetail() {
   }
  useEffect(()=>{
   console.log(params,params?.id)
-    dispatch(fetchProductByIdAsync(params.id));
+    dispatch(fetchAllProductByIdAsync(params.id));
   },[dispatch,params.id]);
  // In server data will add data, colours, sizes etc
  

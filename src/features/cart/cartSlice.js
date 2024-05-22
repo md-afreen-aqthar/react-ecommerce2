@@ -101,4 +101,5 @@ export const cartSlice = createSlice({
 
 export const selectItems = (state) => state.cart.items;
 
-export default cartSlice.reducer;
+// export default counterSlice.reducer;
+ export default cartSlice.reducer;

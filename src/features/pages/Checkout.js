@@ -8,7 +8,7 @@ import {
 import { Navigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
-
+  
   updateUserAsync,
 } from '../auth/authSlice';
 import { useState } from 'react';
