@@ -73,9 +73,9 @@ export const productSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    clearSelectedProduct:(state)=>{
-      state.selectedProduct = null
-    }
+    // clearSelectedProduct:(state)=>{
+    //   state.selectedProduct = null
+    // }
   },
   extraReducers: (builder) => {
     builder
@@ -135,7 +135,7 @@ export const productSlice = createSlice({
       })
   },
 });
-export const { clearSelectedProduct } = productSlice.actions;
+// export const { clearSelectedProduct } = productSlice.actions;
 export const selectAllProducts = (state) => state.product.products;
 export const selectBrands = (state) => state.product.brands;
 export const selectCategories = (state) => state.product.categories;

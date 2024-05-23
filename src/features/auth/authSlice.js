@@ -46,13 +46,11 @@ export const signOutAsync = createAsyncThunk(
 //   reducers: {
    
 //   },
-export const counterSlice = createSlice({
+export const authSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
+   
   },
   extraReducers: (builder) => {
     builder
@@ -94,7 +92,5 @@ export const counterSlice = createSlice({
 });
 export const selectLoggedInUser = (state)=>state.auth.loggedInUser;
 export const selectError = (state)=>state.auth.error;
-
-export const { increment } = counterSlice.actions;
-export default counterSlice.reducer;
+export default authSlice.reducer;
 // export default authSlice.reducer;

@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 import {Navigate } from 'react-router-dom';
 export default function Cart() {
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(true);
   
   const items = useSelector(selectItems);
   const totalAmount = items.reduce(
